@@ -1,0 +1,467 @@
+{
+  "version": 1,
+  "project": {
+    "id": "STREET_EXAMPLE",
+    "title": "The Open Door",
+    "format": "page",
+    "reading_direction": "ltr",
+    "setting": "Contemporary suburban street, ordinary nonmagical world",
+    "style": "Hand-drawn 2D ink and restrained cel color",
+    "excluded_motifs": [
+      "medieval architecture",
+      "armor",
+      "magic",
+      "fantasy weapons"
+    ],
+    "example_notice": "Reference paths are example inputs. Supply and visually inspect real assets before --files or generation."
+  },
+  "references": [
+    {
+      "id": "R_AYA",
+      "role": "character",
+      "entity_id": "C_AYA",
+      "path": "references/aya.png",
+      "description": "Named Aya sheet; original identity, costume and anatomical-left earring."
+    },
+    {
+      "id": "R_BEN",
+      "role": "character",
+      "entity_id": "C_BEN",
+      "path": "references/ben.png",
+      "description": "Named Ben sheet; original identity, costume and anatomical-left red watch."
+    },
+    {
+      "id": "R_ENV",
+      "role": "environment",
+      "entity_id": "E_STREET",
+      "path": "references/street.png",
+      "description": "Modern street: house north, teal car south. Geometry and landmark designs."
+    },
+    {
+      "id": "R_STYLE",
+      "role": "style",
+      "path": "references/style.png",
+      "description": "Hand-drawn ink, flat restrained colors, light cel shading, controlled line weight."
+    }
+  ],
+  "characters": [
+    {
+      "id": "C_AYA",
+      "name": "Aya",
+      "aliases": [
+        "A"
+      ],
+      "invariants": [
+        "medium brown skin",
+        "short black bob",
+        "navy hip-length coat",
+        "single silver hoop in anatomical-left ear"
+      ]
+    },
+    {
+      "id": "C_BEN",
+      "name": "Ben",
+      "aliases": [
+        "B"
+      ],
+      "invariants": [
+        "deep brown skin",
+        "short tight black curls",
+        "neat beard",
+        "mustard jacket",
+        "red watch on anatomical-left wrist"
+      ]
+    }
+  ],
+  "environments": [
+    {
+      "id": "E_STREET",
+      "name": "House and car street",
+      "landmarks": [
+        {
+          "id": "L_HOUSE",
+          "label": "light plaster house with red door",
+          "position": [
+            0,
+            5,
+            0
+          ]
+        },
+        {
+          "id": "L_CAR",
+          "label": "parked teal hatchback",
+          "position": [
+            0,
+            -4,
+            0
+          ]
+        },
+        {
+          "id": "L_ROAD",
+          "label": "road center",
+          "position": [
+            0,
+            0,
+            0
+          ]
+        }
+      ],
+      "lighting": [
+        {
+          "id": "SUN",
+          "kind": "sun",
+          "direction_from": [
+            4,
+            -3,
+            6
+          ],
+          "quality": "soft late afternoon"
+        }
+      ]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S1",
+      "environment_id": "E_STREET",
+      "axis": {
+        "a": [
+          0,
+          2
+        ],
+        "b": [
+          0,
+          -2
+        ]
+      },
+      "initial_state": {
+        "C_AYA": {
+          "position": [
+            0,
+            2,
+            0
+          ],
+          "facing": [
+            0,
+            -1
+          ],
+          "costume": "navy coat, white shirt, dark trousers",
+          "held": {},
+          "injuries": []
+        },
+        "C_BEN": {
+          "position": [
+            0,
+            -2,
+            0
+          ],
+          "facing": [
+            0,
+            1
+          ],
+          "costume": "mustard jacket, green shirt, gray trousers",
+          "held": {},
+          "injuries": []
+        }
+      }
+    }
+  ],
+  "dialogue": [
+    {
+      "id": "D1",
+      "scene_id": "S1",
+      "speaker_id": "C_AYA",
+      "kind": "speech",
+      "text": "You left the door open."
+    },
+    {
+      "id": "D2",
+      "scene_id": "S1",
+      "speaker_id": "C_BEN",
+      "kind": "speech",
+      "text": "I was only gone for a minute."
+    }
+  ],
+  "panels": [
+    {
+      "id": "P1",
+      "scene_id": "S1",
+      "beat": "establish",
+      "moment": "Aya stands on the north pavement beside her house. Ben stands across the road beside the parked car. They face one another.",
+      "story_intent": "Establish the distance, locations and restrained disagreement.",
+      "participants": [
+        "C_BEN",
+        "C_AYA"
+      ],
+      "offscreen_speakers": [],
+      "state": {
+        "C_AYA": {
+          "position": [
+            0,
+            2,
+            0
+          ],
+          "facing": [
+            0,
+            -1
+          ],
+          "costume": "navy coat, white shirt, dark trousers",
+          "held": {},
+          "injuries": []
+        },
+        "C_BEN": {
+          "position": [
+            0,
+            -2,
+            0
+          ],
+          "facing": [
+            0,
+            1
+          ],
+          "costume": "mustard jacket, green shirt, gray trousers",
+          "held": {},
+          "injuries": []
+        }
+      },
+      "changes": [],
+      "camera": {
+        "position": [
+          7,
+          0,
+          5
+        ],
+        "target": [
+          0,
+          0,
+          0.8
+        ]
+      },
+      "screen_order": [
+        "C_BEN",
+        "C_AYA"
+      ],
+      "visible_landmarks": [
+        "L_HOUSE",
+        "L_CAR",
+        "L_ROAD"
+      ],
+      "dialogue_ids": [],
+      "reference_ids": [
+        "R_AYA",
+        "R_BEN",
+        "R_ENV",
+        "R_STYLE"
+      ],
+      "acting": {
+        "C_BEN": {
+          "internal_emotion": "defensive",
+          "display": "uneasy attentive gaze",
+          "intention": "explain his absence",
+          "pose": "shoulders slightly drawn in, open hand"
+        },
+        "C_AYA": {
+          "internal_emotion": "irritated",
+          "display": "tense brow and controlled mouth",
+          "intention": "seek an explanation",
+          "pose": "feet planted, shoulders slightly raised"
+        }
+      },
+      "composition": {
+        "aspect_ratio": "3:2",
+        "focal_point": "C_AYA",
+        "lettering_zones": [],
+        "crop_safety": "Keep visible face, identifying asymmetry and gesture inside the central 85 percent."
+      },
+      "representation_mode": "normal",
+      "status": "planned",
+      "visual_constraints": "Aya remains at the house side, Ben at the car side. View from east. Ben reads screen-left, Aya screen-right. The road separates them."
+    },
+    {
+      "id": "P2",
+      "scene_id": "S1",
+      "beat": "challenge",
+      "moment": "Aya asks Ben why he left the door open, with restrained irritation.",
+      "story_intent": "Read Aya as the speaker, with the red house door behind her.",
+      "participants": [
+        "C_AYA"
+      ],
+      "offscreen_speakers": [],
+      "state": {
+        "C_AYA": {
+          "position": [
+            0,
+            2,
+            0
+          ],
+          "facing": [
+            0,
+            -1
+          ],
+          "costume": "navy coat, white shirt, dark trousers",
+          "held": {},
+          "injuries": []
+        },
+        "C_BEN": {
+          "position": [
+            0,
+            -2,
+            0
+          ],
+          "facing": [
+            0,
+            1
+          ],
+          "costume": "mustard jacket, green shirt, gray trousers",
+          "held": {},
+          "injuries": []
+        }
+      },
+      "changes": [],
+      "camera": {
+        "position": [
+          5,
+          -1,
+          1.7
+        ],
+        "target": [
+          0,
+          2,
+          1.3
+        ]
+      },
+      "screen_order": [
+        "C_AYA"
+      ],
+      "visible_landmarks": [
+        "L_HOUSE"
+      ],
+      "dialogue_ids": [
+        "D1"
+      ],
+      "reference_ids": [
+        "R_AYA",
+        "R_BEN",
+        "R_ENV",
+        "R_STYLE"
+      ],
+      "acting": {
+        "C_AYA": {
+          "internal_emotion": "irritated",
+          "display": "tense brow and controlled mouth",
+          "intention": "seek an explanation",
+          "pose": "feet planted, shoulders slightly raised"
+        }
+      },
+      "composition": {
+        "aspect_ratio": "3:2",
+        "focal_point": "C_AYA",
+        "lettering_zones": [
+          [
+            0.05,
+            0.03,
+            0.45,
+            0.22
+          ]
+        ],
+        "crop_safety": "Keep visible face, identifying asymmetry and gesture inside the central 85 percent."
+      },
+      "representation_mode": "normal",
+      "status": "planned",
+      "visual_constraints": "Show only the named subject. Background comes from the declared landmark and camera direction. No costume transfer or identity blending."
+    },
+    {
+      "id": "P3",
+      "scene_id": "S1",
+      "beat": "reply",
+      "moment": "Ben replies defensively, one open hand held low in explanation.",
+      "story_intent": "Read Ben as the replying speaker, with the parked teal car behind him.",
+      "participants": [
+        "C_BEN"
+      ],
+      "offscreen_speakers": [],
+      "state": {
+        "C_AYA": {
+          "position": [
+            0,
+            2,
+            0
+          ],
+          "facing": [
+            0,
+            -1
+          ],
+          "costume": "navy coat, white shirt, dark trousers",
+          "held": {},
+          "injuries": []
+        },
+        "C_BEN": {
+          "position": [
+            0,
+            -2,
+            0
+          ],
+          "facing": [
+            0,
+            1
+          ],
+          "costume": "mustard jacket, green shirt, gray trousers",
+          "held": {},
+          "injuries": []
+        }
+      },
+      "changes": [],
+      "camera": {
+        "position": [
+          5,
+          1,
+          1.7
+        ],
+        "target": [
+          0,
+          -2,
+          1.3
+        ]
+      },
+      "screen_order": [
+        "C_BEN"
+      ],
+      "visible_landmarks": [
+        "L_CAR"
+      ],
+      "dialogue_ids": [
+        "D2"
+      ],
+      "reference_ids": [
+        "R_AYA",
+        "R_BEN",
+        "R_ENV",
+        "R_STYLE"
+      ],
+      "acting": {
+        "C_BEN": {
+          "internal_emotion": "defensive",
+          "display": "uneasy attentive gaze",
+          "intention": "explain his absence",
+          "pose": "shoulders slightly drawn in, open hand"
+        }
+      },
+      "composition": {
+        "aspect_ratio": "3:2",
+        "focal_point": "C_BEN",
+        "lettering_zones": [
+          [
+            0.05,
+            0.03,
+            0.45,
+            0.22
+          ]
+        ],
+        "crop_safety": "Keep visible face, identifying asymmetry and gesture inside the central 85 percent."
+      },
+      "representation_mode": "normal",
+      "status": "planned",
+      "visual_constraints": "Show only the named subject. Background comes from the declared landmark and camera direction. No costume transfer or identity blending."
+    }
+  ]
+}

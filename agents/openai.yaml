@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mangaka"
+  short_description: "Plan, draw and verify coherent comics and manhwa"
+  default_prompt: "Use $mangaka to turn my script and visual references into a coherent, layered comic with strict continuity checks."
