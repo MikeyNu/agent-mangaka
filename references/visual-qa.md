@@ -19,10 +19,10 @@ Read its `moment`, `story_intent`, `participants`, `represented_characters`,
 Identify the few visible facts that carry the beat and the conditions that would
 mislead the reader. Keep those conditions stable while reviewing candidates.
 
-For a two-person street exchange, this might require Aya's exact silhouette and
-left-ear accessory, Ben's identity, the correct speaker, believable reciprocal
-eyelines, the house and car on their mapped sides, and readable defensive acting.
-A beautifully rendered candidate with swapped identities fails that contract.
+Choose checks that can actually fail in this panel. For an exchange, verify
+the speaker, the listener's direction of attention and the projected positions
+of any visible landmarks. For a silent change of state, verify the before and
+after cues that let the reader recognize the change without dialogue.
 
 Plan aspect ratio, lettering space and protected visual regions before the image
 call. The early layout is provisional. Accept the individual unlettered panel
@@ -84,8 +84,8 @@ There is no average score that can compensate for a failed critical category.
 | `composition` | Focal hierarchy, framing, depth, selected scale, crop safety and reserved lettering zones | Key action is hidden, crop removes meaning, or usable text space cannot be maintained |
 
 Gate failure requires evidence. “The hand looks odd” is insufficient; specify the
-actor, hand, view and error, such as “Ben's anatomical-left wrist emerges from
-Aya's sleeve in the contact crop.” State what must be preserved during repair.
+subject, anatomical side, view and point where the silhouette or overlap breaks
+continuity. State what must be preserved during repair.
 
 Apply permitted stylization narrowly. A near fist can exceed head size through
 foreshortening; a temporal montage can repeat the fighter; a comic stomp may use
@@ -175,17 +175,20 @@ version, within the disclosed inspection scope.
 
 ## Record evidence and separate machine scope
 
+If a panel has no depicted character, identity, acting and anatomy may each
+use `{"status":"not_applicable","reason":"..."}` with a reason specific to the
+shot. Narrative, space, style and composition still require review and a pass.
+
 For accepted art, record `status: "accepted"`, `art`, `qa.art_sha256`,
 `qa.dependency_sha256`, `qa.reviewer`, `qa.evidence`, and `qa.checks`. Evidence should
 identify the reference hashes, compared neighbors, inspected views/crops and
 concrete observations. Reviewer identity can be an agent/session identifier; do
 not imply independent human approval if none occurred.
 
-A useful evidence entry reads: “P003 candidate 04, face crop [84, 32, 310, 292]
-compared with R_BEN_PROFILE; beard shape, left watch and mustard collar retained.
-P002/P003 pairing keeps the reply directed toward Aya; car landmark visible in
-P003. No unexplained movement from the declared state.” Add failures and repairs
-to the version history instead of deleting the unsuccessful trail.
+For each reviewed candidate, record the actual panel and version, reference ID,
+crop coordinates when useful, the feature compared, and what was observed.
+Compare against the relevant adjacent panel and record any unresolved difference.
+Keep failed versions and repairs in the project history.
 
 Run recorded consistency and file checks after relevant changes:
 

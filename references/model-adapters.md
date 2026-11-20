@@ -60,10 +60,9 @@ DELIVERABLE
 One unlettered panel, target aspect ratio and useful resolution.
 
 REFERENCE ROLES
-Image 1: canonical character C_A, use its front and three-quarter face.
-Image 2: canonical character C_B, use the rear costume.
-Image 3: environment E_ROOM, preserve the door/window relationship.
-Image 4: top-down blocking only, do not reproduce labels or diagram style.
+For each input actually attached, give its number, reference ID, role and
+specific visible evidence to preserve. Include only the inputs for this shot.
+When a blocking guide is attached, use its geometry and omit its annotations.
 
 NARRATIVE MOMENT
 Who is doing what to whom, selected action phase, listener and story purpose.

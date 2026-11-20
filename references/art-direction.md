@@ -15,7 +15,7 @@
 
 ## Purpose and evidence
 
-Use this reference when converting a script and approved character/environment resources into individual panel briefs. It supplements the spatial continuity plan and the panel-generation workflow in [SKILL.md](../SKILL.md). The production rules below are a synthesis of artist instruction, primary research and the supplied visual study. They are decisions to apply and test, not a guarantee of model fidelity.
+Use this reference when converting a script and approved character/environment resources into individual panel briefs. It supplements the spatial continuity plan and the panel-generation workflow in [SKILL.md](../SKILL.md). The production rules below are a synthesis of artist instruction, primary research and the skill’s historical visual study. They are decisions to apply and test, not a guarantee of model fidelity.
 
 The output remains 2D drawn art. A theoretical 3D scene map is a planning aid: it describes positions, heights, occlusion and camera direction without requiring 3D rendering. A flattened reference image does not reveal whether its original artist used models, tracing, photography, particular layers or particular software. Describe visible appearance and distinguish interpretation from proven production history.
 
@@ -43,7 +43,7 @@ Do not automatically convert each sentence into one panel. A silent reaction can
 
 ## Construct the view before rendering
 
-Start with the scene map. For a multi-character shot, locate all participants, major landmarks, exits, important props, floor levels and light sources. Then choose the camera. The camera changes the projection of the world; it does not move the house, car or person to a convenient side of the frame.
+Start with the scene map. For a multi-character shot, locate all participants, major landmarks, exits, important props, floor levels and light sources. Then choose the camera. Changing the view changes the projection. Preserve the recorded positions of subjects and landmarks.
 
 Describe camera position and orientation concretely: height, distance, viewing direction, elevation, tilt, framing and which surfaces should be visible. Record the foreground, middle distance and background. Use the spatial continuity reference for the active conversation or movement axis and justified axis changes.
 
@@ -102,7 +102,7 @@ Use effects with a specified purpose:
 | Ghosted limb or prop | Multiple moments of rapid movement | Explicitly declared, visually differentiated, no accidental extra anatomy |
 | Hair, cloth, breath or sweat | Secondary action or exertion | Cause, direction and character condition agree |
 
-The supplied study's spear exchange uses extreme impacts followed by a wider view of displacement and a dropped weapon. Its later miniature replay explains a retreating step. Use that separation of drama and explanation; do not duplicate the injury when showing the replay. A bright contact flash may cover the exact anatomy if attacker, target, vector and consequence remain clear.
+The historical study's spear exchange uses extreme impacts followed by a wider view of displacement and a dropped weapon. Its later miniature replay explains a retreating step. Use that separation of drama and explanation; do not duplicate the injury when showing the replay. A bright contact flash may cover the exact anatomy if attacker, target, vector and consequence remain clear.
 
 ## Use expressive modes deliberately
 
@@ -148,6 +148,6 @@ Use these as decision tests and visual test briefs, not as claims of completed g
 5. A miniature replay follows the fight; no current-state injury or movement is applied twice.
 6. A comic motion echo appears; distinguish declared ghosts from an accidental extra arm.
 7. A symbolic memory contains new people; they must not leak into the present scene.
-8. A modern street uses fantasy study techniques; reject imported castles, armor and magical effects unless supplied by the modern brief.
+8. When a study comes from another genre, use only the techniques the current brief calls for. Check the cast, props and setting against this project.
 9. An extreme foreground hand preserves face likeness and attaches coherently to its own character.
 10. A scene changes from noon to evening; accept a motivated lighting transition while preserving costume base colors and object identity.

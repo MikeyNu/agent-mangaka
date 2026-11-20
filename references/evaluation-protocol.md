@@ -37,7 +37,8 @@ python scripts/mangaka.py validate assets/project.example.json
 
 The example manifest contains intentionally placeholder reference paths, so
 `--files` is expected to fail until actual inspected references replace them.
-This is different from a populated live trial, which must pass file checks.
+For a deliberate preview of this fixture, run `packet` with `--allow-example`.
+Start an unrelated production with `init`. Keep the demonstration intact for maintenance.
 The compositor tests need a usable font. A skipped font-dependent test is an
 unverified case, not a success. Supply `MANGAKA_TEST_FONT` when necessary.
 

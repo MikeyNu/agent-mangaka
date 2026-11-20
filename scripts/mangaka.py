@@ -673,8 +673,15 @@ def validate(project, root=None, check_files=False):
         if panel.get("status") == "accepted":
             qa = panel.get("qa", {})
             gates = ("identity", "narrative", "space", "acting", "anatomy", "style", "composition")
-            if any(qa.get("checks", {}).get(g) != "pass" for g in gates):
-                error("QA_GATE", pid, "Every required visual gate needs an explicit pass")
+            for gate in gates:
+                check = qa.get("checks", {}).get(gate)
+                if check == "pass":
+                    continue
+                if (not represented and gate in {"identity", "acting", "anatomy"} and
+                        isinstance(check, dict) and check.get("status") == "not_applicable" and
+                        text_value(check.get("reason"))):
+                    continue
+                error("QA_GATE", pid, f"Missing or unresolved visual check: {gate}")
             if not qa.get("reviewer") or not qa.get("evidence") or not qa.get("art_sha256") or not panel.get("art"):
                 error("QA_EVIDENCE", pid, "Record the artifact path and hash, reviewer, inspected views/crops, and observations")
             try:
@@ -696,10 +703,15 @@ def validate(project, root=None, check_files=False):
     return errors
 
 
-def packet(project, panel_id):
+def packet(project, panel_id, *, allow_example=False):
     errors = validate(project)
     if errors:
         raise InvalidProject(json.dumps(errors, ensure_ascii=False, indent=2))
+    meta = project["project"]
+    teaching_example = "example_notice" in meta
+    if teaching_example and not allow_example:
+        raise InvalidProject("This is a teaching example. Start a new story with init. "
+                             "To preview the demonstration itself, use --allow-example.")
     panel = next((p for p in project["panels"] if p["id"] == panel_id), None)
     if panel is None:
         raise InvalidProject(f"Unknown panel {panel_id}")
@@ -709,13 +721,20 @@ def packet(project, panel_id):
     env = next(e for e in project["environments"] if e["id"] == scene["environment_id"])
     characters = {c["id"]: c for c in project["characters"]}
     reference_map = [{**refs[r], "input": n+1} for n, r in enumerate(panel["reference_ids"])]
-    chunks = ["OUTPUT\nOne unlettered hand-drawn 2D comic panel. No page grid or baked-in lettering.",
-              "PROJECT\n"+json.dumps(project["project"], ensure_ascii=False),
+    render_contract = {k: meta[k] for k in ("id", "format", "reading_direction", "setting", "style")}
+    visible = set(panel.get("visible_landmarks", []))
+    environment = {k: env[k] for k in ("id", "name", "description", "lighting", "palette",
+                                       "materials", "geometry", "floor_levels", "weather",
+                                       "atmosphere", "time_of_day") if k in env}
+    environment["landmarks"] = [lm for lm in env.get("landmarks", []) if lm["id"] in visible]
+    visible_state = {cid: panel["state"][cid] for cid in panel.get("participants", [])}
+    chunks = ["OUTPUT\nOne unlettered comic panel in the project's specified style. No page grid or baked-in lettering.",
+              "PROJECT\n"+json.dumps(render_contract, ensure_ascii=False),
               "REFERENCE BINDING\n"+"\n".join(f"Image {r['input']}: {r['id']}, {r['role']}, {r.get('entity_id', 'project')}. {r['description']}" for r in reference_map),
               f"STORY MOMENT\n{panel['moment']}\nReader purpose: {panel['story_intent']}\nBeat: {panel['beat']}",
               "CHARACTER LOCKS\n"+json.dumps([characters[c] for c in represented_characters(panel)], ensure_ascii=False),
-              "WORLD STATE\n"+json.dumps(panel["state"], ensure_ascii=False),
-              "ENVIRONMENT AND LIGHT\n"+json.dumps({"environment": env, "panel_lighting": panel.get("lighting", []),
+              "VISIBLE PHYSICAL STATE\n"+json.dumps(visible_state, ensure_ascii=False),
+              "ENVIRONMENT AND LIGHT\n"+json.dumps({"environment": environment, "panel_lighting": panel.get("lighting", []),
                   "world_gravity": scene.get("gravity", [0, 0, -1])}, ensure_ascii=False),
               "NARRATIVE PROVENANCE\n"+json.dumps(panel.get("narrative_provenance", scene.get("narrative_provenance", {})), ensure_ascii=False),
               "CAMERA AND VISIBLE PROJECTION\n"+json.dumps({k: panel.get(k) for k in ["camera", "screen_order", "visible_landmarks", "composition"]}, ensure_ascii=False),
@@ -725,10 +744,14 @@ def packet(project, panel_id):
                   "represented_characters": represented_characters(panel),
                   "continuity_mode": panel.get("continuity_mode", "hold" if panel.get("representation_mode") in HELD_MODES else "advance"),
                   "instances": panel.get("instances", [])}, ensure_ascii=False),
-              "VISIBLE CONSTRAINTS\n"+panel.get("visual_constraints", "Translate the map into the declared screen order and visible landmarks. Do not relocate people to preserve a background."),
-              "EXCLUSIONS\nNo readable text, speech balloons, captions, panel borders, photographic or 3D-render finish. Preserve anatomical sides. Do not merge identities or transfer costumes. " + "; ".join(project["project"].get("excluded_motifs", [])),
-              "ACCEPTANCE\nVerify identity, story event, world positions, eyelines, expression and body language, anatomy, style parity, and crop/lettering safety against the original references."]
-    return {"panel_id": panel_id, "dependency_sha256": panel_dependency_digest(project, panel),
+              "VISIBLE CONSTRAINTS\n"+panel.get("visual_constraints", "Use the declared screen order and visible landmarks. Keep mapped positions consistent with this shot."),
+              "EXCLUSIONS\nKeep text, balloons, captions and panel frames for assembly. "
+              "Depict only the subjects and landmarks directed for this shot. " + "; ".join(meta.get("excluded_motifs", [])),
+              "ACCEPTANCE\nVerify the story event, space, style and composition against the brief and references. "
+              + ("Check identity, anatomy and acting for the depicted subjects." if represented_characters(panel)
+                 else "Check continuity of the objects or environment shown.")]
+    return {"purpose": "teaching_example" if teaching_example else "panel_plan",
+            "panel_id": panel_id, "dependency_sha256": panel_dependency_digest(project, panel),
             "reference_map": reference_map, "prompt": "\n\n".join(chunks),
             "lettering_only": [copy.deepcopy(lines[d]) for d in panel["dialogue_ids"]],
             "notice": "Never submit lettering_only as instructions to paint text. Adapt fields to the live provider schema. This packet does not authorize a paid call or certify visual quality."}
@@ -762,7 +785,7 @@ def scene_map(project, panel_id):
     for cid, state in panel["state"].items():
         parts.append(label(state["position"], cid, "#1967b0", 8))
     parts.append(label(camera["position"], "CAMERA z="+str(camera["position"][2]), "#b42d1b", 10))
-    parts += ['<text x="30" y="675" font-size="14">Planning diagram only. Generate the final artwork as a 2D drawing.</text>', '</svg>']
+    parts += ['<text x="30" y="675" font-size="14">Planning diagram only. Follow the project style for final art.</text>', '</svg>']
     return "\n".join(parts)
 
 
@@ -807,13 +830,28 @@ def scene_map_png(project, panel_id, path):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("command", choices=["validate", "packet", "map"])
+    ap.add_argument("command", choices=["init", "validate", "packet", "map"])
     ap.add_argument("project", type=Path)
     ap.add_argument("panel", nargs="?")
     ap.add_argument("--files", action="store_true", help="Verify reference hashes and accepted art bytes")
     ap.add_argument("--out", type=Path)
+    ap.add_argument("--allow-example", action="store_true", help="Preview a marked teaching example with packet")
     args = ap.parse_args()
     try:
+        if args.out and args.out.resolve() == args.project.resolve():
+            raise InvalidProject("Choose an output path different from the input manifest")
+        if args.command == "init":
+            if args.out or args.panel or args.files or args.allow_example:
+                ap.error("init takes only the destination project path")
+            template = Path(__file__).resolve().parents[1] / "assets" / "project.template.json"
+            data = template.read_bytes()
+            args.project.parent.mkdir(parents=True, exist_ok=True)
+            with args.project.open("xb") as output:
+                output.write(data)
+            print(args.project)
+            return 0
+        if args.allow_example and args.command != "packet":
+            ap.error("--allow-example is only for packet")
         def unique_object(pairs):
             value = {}
             for key, item in pairs:
@@ -823,6 +861,15 @@ def main():
             return value
         project = json.loads(args.project.read_text(encoding="utf-8"), object_pairs_hook=unique_object)
         errors = validate(project, args.project.parent, args.files)
+        if errors and args.out and args.command == "validate":
+            args.out.parent.mkdir(parents=True, exist_ok=True)
+            args.out.write_text(json.dumps({"ok": False, "errors": errors}, indent=2, ensure_ascii=False)+"\n", encoding="utf-8")
+            print(json.dumps({"ok": False, "error_count": len(errors), "report": str(args.out)}))
+            return 2
+        if errors and args.out:
+            print(json.dumps({"ok": False, "error_count": len(errors), "first_error": errors[0],
+                              "hint": "Use validate --out with a report path for all errors."}))
+            return 2
         if errors:
             print(json.dumps({"ok": False, "errors": errors}, indent=2, ensure_ascii=False))
             return 2
@@ -831,7 +878,7 @@ def main():
         elif not args.panel:
             raise InvalidProject("packet and map require a panel ID")
         elif args.command == "packet":
-            result = json.dumps(packet(project, args.panel), indent=2, ensure_ascii=False)
+            result = json.dumps(packet(project, args.panel, allow_example=args.allow_example), indent=2, ensure_ascii=False)
         elif args.out and args.out.suffix.lower() == ".png":
             scene_map_png(project, args.panel, args.out)
             print(str(args.out))

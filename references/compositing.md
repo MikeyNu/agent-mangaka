@@ -23,7 +23,7 @@ Separate artwork and lettering is also a proven production method: the Pepper&Ca
 
 ## Run and outputs
 
-Requirements: Python 3.10 or later, Pillow, and an explicitly supplied single-file TTF or OTF font. Complex-script text additionally requires Pillow built with libraqm. Never silently substitute an unlicensed or missing font.
+Use Python 3.10 or later and Pillow. For pages with lettering, supply a single-file TTF or OTF font. A wordless page uses an empty dialogue ledger and balloon list, and needs no font. Complex-script text additionally requires Pillow built with libraqm. Never silently substitute an unlicensed or missing font.
 
 ```sh
 python scripts/compose_page.py project/layout.json project/exports/page-01
@@ -74,13 +74,13 @@ All coordinates are pixels. Page coordinates have origin at the upper-left, x ri
     "frame": {"polygon": [[50,50],[1150,50],[1080,750],[50,750]]},
     "fit": "cover", "align": [0.5,0.5],
     "border": {"color":"#111111", "width":4},
-    "subjects": [{"character_id":"AYA", "mouth":[800,440], "thought_anchor":[800,390]}],
+    "subjects": [{"character_id":"C_01", "mouth":[800,440], "thought_anchor":[800,390]}],
     "critical_regions": [{"name":"face", "rect":[600,300,180,160]}]
   }],
   "balloons": [{
     "id":"B1", "dialogue_id":"D1", "panel_id":"P1", "style":"ordinary",
     "box":[90,90,520,210],
-    "tail":{"kind":"on_panel", "character_id":"AYA", "target":[800,440]}
+    "tail":{"kind":"on_panel", "character_id":"C_01", "target":[800,440]}
   }]
 }
 ```
@@ -100,8 +100,8 @@ Asymmetry is represented through independent box proportions, four-sided padding
   "dialogue": [
     {
       "dialogue_id": "D1", "page_id": "PAGE1", "panel_id": "P1",
-      "speaker_id": "AYA", "kind": "speech", "reading_order": 1,
-      "text": "You left the door open."
+      "speaker_id": "C_01", "kind": "speech", "reading_order": 1,
+      "text": "<exact text from the current script>"
     }
   ]
 }

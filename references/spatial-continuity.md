@@ -16,10 +16,10 @@ Keep four different systems explicit:
 
 | System | Meaning | Example |
 |---|---|---|
-| World | Stable scene locations | Aya north of the road, Ben south |
-| Camera/screen | Positions projected into one panel | Ben screen-left in the east-side wide shot |
-| Anatomy | The character's own left and right | Red watch on Ben's anatomical-left wrist |
-| Reading | Intended traversal of panels and text | RTL page order with Japanese vertical text |
+| World | Stable scene locations | Two subjects on opposite sides of the interaction axis |
+| Camera/screen | Positions projected into one panel | The nearer subject projects to screen-left from this angle |
+| Anatomy | The character's own left and right | An identifying mark stays on the same anatomical side |
+| Reading | Intended traversal of panels and text | Traversal follows the reading direction chosen for this project |
 
 Never mirror a canonical image simply to reverse page flow. A mirrored scar,
 watch, sword hand, hair part, or costume closure changes identity. Redraw the
@@ -53,13 +53,12 @@ listener's attention goes. For a fight, establish the starting distance, reach,
 support feet, obstacles, target and escape route. Blocking should support the
 story, rather than making characters stand in an arbitrary symmetrical row.
 
-### Worked house and car example
+### Check a reverse view
 
-Aya is at `[0,2,0]`, the house at `[0,5,0]`, Ben at `[0,-2,0]`, and the car at
-`[0,-4,0]`. A wide camera at `[7,0,5]` looks toward `[0,0,0.8]`. This projects
-Ben left and Aya right, with road between them. A closer east/southeast view
-of Aya can show the house behind her. A closer east/northeast view of Ben can
-show the car behind him. Neither character has moved.
+Fix two subjects in world space and choose a landmark that the current story
+places beyond one of them. Project the first camera view, then move the camera
+for the reverse. Check which subject and landmark are visible from the new
+angle. Keep world positions fixed unless the script describes movement.
 
 Write those visible relationships into the generation packet. Numeric
 coordinates are a planning record, not a precise conditioning language that

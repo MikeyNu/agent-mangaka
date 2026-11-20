@@ -46,9 +46,9 @@ rear shot, rather than a new complete character pack.
 
 ## Match script identities to named sheets
 
-Use stable IDs such as `C_AYA`, `E_STREET` and `R_AYA_FRONT`. IDs remain stable when
+Use stable IDs such as `C_01`, `E_01` and `R_C01_FRONT`. IDs remain stable when
 display names or filenames change. Do not name an identity by its position in an
-upload list. Bind a character reference with `entity_id: "C_AYA"`, then bind the
+upload list. Bind a character reference with `entity_id: "C_01"`, then bind the
 script speaker to that same ID through `dialogue[].speaker_id`.
 
 | Step | Evidence to inspect | Decision |
@@ -86,8 +86,8 @@ check it geometrically; never repair it by editing the canonical anatomical side
 
 Match environments in the same way. Bind scene names and aliases to
 `scenes[].environment_id`. Inspect entrances, persistent landmarks, floor levels,
-materials, palette and world-space lights. A “house behind Aya” is a consequence
-of blocking and view direction, not a permanent background pasted behind Aya.
+materials, palette and world-space lights. Determine which landmark appears behind a subject from the recorded
+positions and camera direction for each shot.
 
 ## Record source authority and narrative truth
 

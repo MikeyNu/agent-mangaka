@@ -7,7 +7,7 @@ description: >-
   production, individual panels, visual continuity repair, action choreography,
   dialogue attribution, page or scroll layout, reference study, and layered
   comic exports. Preserve character identity, scene geography, exact dialogue,
-  project-specific balloon grammar, and hand-drawn art direction. Generate each
+  project-specific balloon grammar, and the brief's art direction. Generate each
   panel separately with available image tools, then assemble editable masks,
   frames, balloons, and text with strict visual review.
 ---
@@ -91,9 +91,22 @@ the original artist's layers, exact lens, or tools from a flattened image.
 
 ## 2. Build the canon and dialogue ledger
 
-Use [the example manifest](assets/project.example.json) as a structural example,
-not as ready-to-generate assets. Replace example paths with inspected resources.
-Keep stable IDs when names or filenames change.
+For a new story, start from the [empty project manifest](assets/project.template.json).
+Run the command from the skill directory, using a destination in the story's
+own workspace. It creates the manifest exclusively and preserves existing work.
+
+```sh
+python scripts/mangaka.py init /path/to/story/project.json
+```
+
+Fill the contract and records from the current script, supplied references and
+approved design decisions. Each cast member, prop, location, line, art treatment
+and exclusion in a panel must have one of those sources. Keep undecided designs
+in planning notes. Study examples demonstrate technique only. Reuse a populated
+manifest only when resuming that same story. Keep stable IDs across revisions.
+With story text alone, deliver the beats, ledger, provisional blocking and a list
+of missing references. Label that handoff as planning until the required designs
+are supplied or their creation is authorized and the resulting designs reviewed.
 
 Match each script name and alias to the correct named sheet. Verify face,
 silhouette, proportions, hair, palette, identifying marks, anatomical sides,
@@ -144,10 +157,10 @@ geography after a deliberate axis change. Separate camera roll from gravity,
 and expressive color treatment from physical lighting.
 
 ```sh
-python scripts/mangaka.py validate story/project.json --files
+python scripts/mangaka.py validate story/project.json --files --out work/validation.json
 python scripts/mangaka.py map story/project.json P001 --out work/P001-map.svg
 python scripts/mangaka.py map story/project.json P001 --out work/P001-map.png
-python scripts/mangaka.py packet story/project.json P001 --out work/P001-packet.json
+python scripts/mangaka.py packet story/project.json P001 --files --out work/P001-packet.json
 ```
 
 The checks verify recorded consistency and file hashes, not generated pixels.
@@ -233,3 +246,14 @@ canon, dialogue ledger, manifests, prompts, and review evidence to the requested
 workspace. Report actual completion, observed limits, and remaining defects.
 Resume from checkpoints. If canon or dialogue changes, invalidate and review
 affected panels, downstream continuity, crops, lettering, and exports.
+
+At each completed stage, update `HANDOFF.md` alongside the story manifest.
+Record the manifest path, last completed panel and stage, pending reference or
+provider job IDs, next action, and commit SHA or durable saved location.
+Before a long render or publication, verify that the handoff and the files it
+names can be reopened from the project's authorized persistent destination.
+Keep art, per-panel packets, validation reports and layered exports as files.
+In chat, report paths, counts and checksums. For an authorized Git publication,
+inspect the staged filenames and sizes, publish only the requested files, and
+verify the branch head and tree. Resume from the saved handoff and verified
+files without replaying a transcript, full diff or embedded image data.

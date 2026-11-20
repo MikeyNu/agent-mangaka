@@ -86,7 +86,7 @@ The following is a vocabulary to resolve against project references, not a unive
 
 Nate Piekos presents lettering conventions as traditions with editorial variation, including captions, thought, shouting, weak speech and remote voices. His guidance supports deliberate grammar rather than a universal shape classifier. [Blambot, Comic Book Grammar and Tradition](https://blambot.com/pages/comic-book-grammar-tradition), accessed 2026-11-20.
 
-The supplied study includes both fuzzy internal-thought forms and dotted-tail thought ovals. It also includes wavering speech, partly translucent balloons, rectangular narration and ornate name cards. Preserve such distinctions when they are selected for a new project; do not import them into a different project's approved balloon system by default.
+The historical visual study includes both fuzzy internal-thought forms and dotted-tail thought ovals. It also includes wavering speech, partly translucent balloons, rectangular narration and ornate name cards. Preserve such distinctions when they are selected for a new project; do not import them into a different project's approved balloon system by default.
 
 When a needed semantic role has no design reference, derive the smallest compatible variant and record the decision. Do not silently substitute a generic circle when a required custom form is unsupported by the compositor. Route that asset through an editor or another capable tool and keep the rest of the pipeline intact.
 
