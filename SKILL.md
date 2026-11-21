@@ -5,7 +5,7 @@ description: >-
   graphic novels, and vertical webcomics from scripts, named character sheets,
   environment designs, and lettering references. Use for complete comic
   production, individual panels, visual continuity repair, fight choreography,
-  foreshortened poses, hand-drawn motion and impact lines,
+  foreshortened poses, hand-drawn motion, environmental destruction, debris, impact scale,
   dialogue attribution, page or scroll layout, reference study, and layered
   comic exports. Preserve character identity, scene geography, exact dialogue,
   project-specific balloon grammar, and the brief's art direction. Generate each
@@ -56,6 +56,7 @@ Assemble accepted panels with deterministic masks and independent lettering.
 | Multiple characters, reverse views, environments | [Spatial continuity](references/spatial-continuity.md) |
 | Perspective, framing, acting, action, impact, light | [Art direction](references/art-direction.md) |
 | Fight choreography, fast or heavy movement, drawn trails, impact poses and afterimages | [Drawing motion in action panels](references/drawing-motion.md) |
+| Environmental damage, material fracture, debris, impact scale and aftermath | [Drawing environmental impact](references/environmental-impact.md) |
 | Print, scroll, RTL, balloons and typography | [Pages and lettering](references/pages-and-lettering.md) |
 | Image calls, references, prompts, edits, provider limits | [Model adapters](references/model-adapters.md) |
 | Panel acceptance, parity, repair and delivery | [Visual QA](references/visual-qa.md) |
@@ -144,6 +145,9 @@ visible path, stroke placement and protected gaps into `visual_constraints`.
 These fields reach the image prompt through the existing panel packet. Keep
 the project's palette and rendering treatment. Use technique studies for
 observation only unless the brief separately designates a production reference.
+
+When a beat changes a location, read [Drawing environmental impact](references/environmental-impact.md).
+Set the extent against a known feature, draw the material response and carry the lasting change into later views.
 
 Separate inner emotion, displayed expression, intention, and intensity. Reject
 unmotivated cheerful acting in confrontation while preserving scripted nervous
