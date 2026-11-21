@@ -5,7 +5,7 @@ description: >-
   graphic novels, and vertical webcomics from scripts, named character sheets,
   environment designs, and lettering references. Use for complete comic
   production, individual panels, visual continuity repair, fight choreography,
-  foreshortened poses, hand-drawn motion, environmental destruction, debris, impact scale, fire, water, wind and shadow magic, drawing elemental effects, shadow summons and constructs,
+  foreshortened poses, hand-drawn motion, environmental destruction, debris, impact scale, fire, water, wind, shadow and lightning magic, drawing elemental effects, shadow summons and constructs,
   dialogue attribution, page or scroll layout, reference study, and layered
   comic exports. Preserve character identity, scene geography, exact dialogue,
   project-specific balloon grammar, and the brief's art direction. Generate each
@@ -61,6 +61,7 @@ Assemble accepted panels with deterministic masks and independent lettering.
 | Water magic, fluid forms, currents, splashes and wet surfaces | [Drawing water and water magic](references/water-magic.md) |
 | Wind magic, gusts, vortices, ventilation and displaced objects | [Drawing wind and wind magic](references/wind-magic.md) |
 | Shadow magic, creature summoning, disappearance into shadow and shadow objects | [Drawing shadow magic](references/shadow-magic.md) |
+| Lightning magic, static, branching discharges and flash lighting | [Drawing lightning and electrical magic](references/lightning-magic.md) |
 | Print, scroll, RTL, balloons and typography | [Pages and lettering](references/pages-and-lettering.md) |
 | Image calls, references, prompts, edits, provider limits | [Model adapters](references/model-adapters.md) |
 | Panel acceptance, parity, repair and delivery | [Visual QA](references/visual-qa.md) |
@@ -160,6 +161,8 @@ For a water beat, use [Drawing water and water magic](references/water-magic.md)
 For a wind beat, use [Drawing wind and wind magic](references/wind-magic.md) to choose what moves, the path through space and the visible response after the air passes.
 
 For a shadow beat, use [Drawing shadow magic](references/shadow-magic.md) to stage an arrival, disappearance or formed object against a stable shadow boundary. Use the abilities established by the current story.
+
+For a lightning beat, use [Drawing lightning and electrical magic](references/lightning-magic.md) to place the source, main channel, branches and any contact before lighting the scene.
 
 Separate inner emotion, displayed expression, intention, and intensity. Reject
 unmotivated cheerful acting in confrontation while preserving scripted nervous
