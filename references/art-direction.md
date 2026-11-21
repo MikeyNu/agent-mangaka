@@ -79,6 +79,8 @@ For each visible actor, record internal emotion, outward display, intensity, int
 
 Translate the performance into observable cues. Select the relevant combination of brow angle, eyelid tension, pupil direction, mouth shape, jaw tension, head angle, shoulders, torso, hands and weight distribution. Avoid relying on a generic emotion label alone. Magda Proski's facial construction lesson emphasizes how moving features act on the dimensional head, which helps preserve likeness during strong expression. [How to Draw Expressive Faces](https://www.clipstudio.net/how-to-draw/archives/157239), accessed 2026-11-20.
 
+For anger that builds, breaks through or goes quiet, select the performance and panel transition in [Drawing rage in sequential art](drawing-rage.md).
+
 Gesture should carry the thought before costume detail is added. Ask what the person just did, is doing and is about to do. A hunched torso, protective arm and braced knee communicate a different condition from the same face on an upright relaxed body. [Stan Prokopenko, How to Draw Gesture](https://www.proko.com/course-lesson/how-to-draw-gesture), accessed 2026-11-20.
 
 Check the individual identity bundle against the correct sheet: facial proportions, hair silhouette and parting, age, body build, clothing construction, distinctive marks and accessories. Hair or eye color alone is inadequate when the cast shares those features. Evaluate back views against back-view references where available; the face cannot rescue an incorrect rear silhouette.
