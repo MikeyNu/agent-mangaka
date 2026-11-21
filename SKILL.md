@@ -6,7 +6,7 @@ description: >-
   environment designs, and lettering references. Use for complete comic
   production, individual panels, visual continuity repair, fight choreography,
   foreshortened poses, hand-drawn motion, environmental destruction, debris, impact scale, fire, water, wind, shadow and lightning magic, black holes and spatial distortion, elemental effects, shadow summons and constructs,
-  facial acting, restrained anger and rage, dialogue attribution, page or scroll layout, reference study, and layered
+  exaggerated facial acting, emotional beats, expressive lighting and linework, restrained anger and rage, dialogue attribution, page or scroll layout, reference study, and layered
   comic exports. Preserve character identity, scene geography, exact dialogue,
   project-specific balloon grammar, and the brief's art direction. Generate each
   panel separately with available image tools, then assemble editable masks,
@@ -55,6 +55,7 @@ Assemble accepted panels with deterministic masks and independent lettering.
 | Intake, identity matching, manifests, revisions | [Intake and canon](references/intake-and-canon.md) |
 | Multiple characters, reverse views, environments | [Spatial continuity](references/spatial-continuity.md) |
 | Perspective, framing, acting, action, impact, light | [Art direction](references/art-direction.md) |
+| Emotional acting, eyes and mouths, directional light and expressive pencil strokes | [Drawing emotion in manhwa](references/drawing-emotions.md) |
 | Anger, rage, withheld reactions, strained smiles and outbursts | [Drawing rage in sequential art](references/drawing-rage.md) |
 | Fight choreography, fast or heavy movement, drawn trails, impact poses and afterimages | [Drawing motion in action panels](references/drawing-motion.md) |
 | Environmental damage, material fracture, debris, impact scale and aftermath | [Drawing environmental impact](references/environmental-impact.md) |
