@@ -62,7 +62,7 @@ Assemble accepted panels with deterministic masks and independent lettering.
 | Wind magic, gusts, vortices, ventilation and displaced objects | [Drawing wind and wind magic](references/wind-magic.md) |
 | Shadow magic, creature summoning, disappearance into shadow and shadow objects | [Drawing shadow magic](references/shadow-magic.md) |
 | Lightning magic, static, branching discharges and flash lighting | [Drawing lightning and electrical magic](references/lightning-magic.md) |
-| Space magic, black holes, orbital bands and spatial distortion | [Drawing black holes and spatial distortion](references/black-holes-and-spatial-distortion.md) |
+| Space magic, black holes, spatial distortion and hand-held orbs | [Drawing black holes and spatial distortion](references/black-holes-and-spatial-distortion.md) |
 | Print, scroll, RTL, balloons and typography | [Pages and lettering](references/pages-and-lettering.md) |
 | Image calls, references, prompts, edits, provider limits | [Model adapters](references/model-adapters.md) |
 | Panel acceptance, parity, repair and delivery | [Visual QA](references/visual-qa.md) |
