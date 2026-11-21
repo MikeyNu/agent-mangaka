@@ -78,6 +78,8 @@ into visible depth, screen order, eyelines and background landmarks.
 ACTING AND ACTION
 Inner emotion, displayed expression, social intention, gesture,
 support/balance, contact and gaze target.
+For a motion beat, describe its path in this view, the grounded or stationary
+anchor, the edge that stays crisp and the location of any drawn trails.
 
 DRAWING AND LIGHT
 Project ink, palette, shadows, edge treatment, perspective and motivated

@@ -124,6 +124,12 @@ intended target and who actually received contact. Check that speed marks,
 cloth trails, debris and impact bursts support the same event. A shot may omit
 contact deliberately, but the next result must make the intended causality clear.
 
+For beats that depend on motion, use the [action-panel reading test](drawing-motion.md#read-the-result-and-repair-it).
+Write down the movement and outcome you can infer from the unlettered art
+before comparing them with the planned beat. Record the visible evidence under
+the existing narrative, space, anatomy, style or composition gate. Repeat at
+the placed crop and intended page or phone size.
+
 For dialogue, follow speaker/addressee changes and compare balloon order with the
 script ledger. Check silence, interruption, overlapping speech, nested thought,
 remote sources and repeated occurrences. Do a silent art pass to test visual

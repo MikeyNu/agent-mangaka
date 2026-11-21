@@ -85,6 +85,10 @@ Check the individual identity bundle against the correct sheet: facial proportio
 
 ## Choreograph static action
 
+For pose construction, shot selection, timing and the placement of individual
+strokes, use [Drawing motion in action panels](drawing-motion.md) as part of
+thumbnailing the exchange.
+
 Plan the complete exchange before generating its first panel. Record starting stance, actor goals, approach route, range, support foot or contact surface, attack direction, defense, contact or miss, reaction, displacement, object loss, damage and resulting positions. Magical or superhuman events still need the story's own consistent causal rules.
 
 Select the instants that make the mechanism readable. Not every phase needs its own panel, but an omitted phase must remain inferable without a contradictory jump. A compact sequence might use preparation, one contact image, a witness reaction and a wide consequence. A surprise attack may intentionally hide preparation; do not add a warning pose that defeats the written surprise.
